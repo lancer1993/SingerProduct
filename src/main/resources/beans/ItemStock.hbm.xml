@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 21, 2020 11:16:42 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="beans.ItemStock" table="item_stock" catalog="singer_good_stock" optimistic-lock="version">
+        <id name="iditemStock" type="java.lang.Integer">
+            <column name="iditem_stock" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="category" class="beans.Category" fetch="select">
+            <column name="category_id" not-null="true" />
+        </many-to-one>
+        <property name="productCode" type="string">
+            <column name="product_code" length="65535" not-null="true" />
+        </property>
+        <property name="itemStockName" type="string">
+            <column name="item_stock_name" length="65535" not-null="true" />
+        </property>
+        <property name="itemDescription" type="string">
+            <column name="item_description" length="65535" not-null="true" />
+        </property>
+        <property name="itemPrice" type="big_decimal">
+            <column name="item_price" precision="12" not-null="true" />
+        </property>
+        <property name="sellingPrice" type="big_decimal">
+            <column name="selling_price" precision="12" not-null="true" />
+        </property>
+        <property name="discount" type="big_decimal">
+            <column name="discount" precision="12" not-null="true" />
+        </property>
+        <property name="availability" type="boolean">
+            <column name="availability" not-null="true" />
+        </property>
+        <property name="imageItem" type="string">
+            <column name="image_item" length="65535" not-null="true" />
+        </property>
+        <property name="delivery" type="boolean">
+            <column name="delivery" not-null="true" />
+        </property>
+        <property name="deliveryTimePeriod" type="string">
+            <column name="delivery_time_period" length="65535" not-null="true" />
+        </property>
+        <property name="warranty" type="boolean">
+            <column name="warranty" not-null="true" />
+        </property>
+        <property name="warrantyPeriod" type="string">
+            <column name="warranty_period" length="65535" not-null="true" />
+        </property>
+        <property name="dateCreated" type="timestamp">
+            <column name="date_created" length="0" not-null="true" />
+        </property>
+        <property name="lastUpdated" type="timestamp">
+            <column name="last_updated" length="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
